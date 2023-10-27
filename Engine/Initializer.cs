@@ -43,7 +43,12 @@ namespace QuantConnect.Lean.Engine
                 if (!string.IsNullOrEmpty(destinationDir))
                 {
                     Directory.CreateDirectory(destinationDir);
-                    Log.FilePath = Path.Combine(destinationDir, "log.txt");
+                    var date = DateTime.Now.ToShortDateString();
+                    date = date.Replace("/", "");
+                    date = date.Replace("\\", "");
+                    date = date.Replace("-", "");
+                    string file = "log_" + date + ".txt";
+                    Log.FilePath = Path.Combine(destinationDir, file);
                 }
                 Log.LogHandler = Composer.Instance.GetExportedValueByTypeName<ILogHandler>(Config.Get("log-handler", "CompositeLogHandler"));
 

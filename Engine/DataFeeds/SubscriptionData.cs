@@ -85,7 +85,10 @@ namespace QuantConnect.Lean.Engine.DataFeeds
                     // we don't do this always above because it's expensive, only do it if we need to.
                     // Behavior asserted by tests 'FillsForwardBarsAroundDaylightMovementForDifferentResolutions_Algorithm' && 'ConvertToUtcAndDayLightSavings'.
                     // Note: we don't use 'configuration.Increment' because during warmup, if the warmup resolution is set, we will emit data respecting it instead of the 'configuration'
-                    barSpan = data.EndTime.ConvertToUtc(configuration.ExchangeTimeZone) - data.Time.ConvertToUtc(configuration.ExchangeTimeZone);
+                    if (data.EndTime > DateTime.MinValue && data.Time > DateTime.MinValue)
+                    {
+                        barSpan = data.EndTime.ConvertToUtc(configuration.ExchangeTimeZone) - data.Time.ConvertToUtc(configuration.ExchangeTimeZone); //Priya
+                    }
                 }
                 data.Time = data.Time.ExchangeRoundDownInTimeZone(barSpan, exchangeHours, configuration.DataTimeZone, configuration.ExtendedMarketHours);
             }

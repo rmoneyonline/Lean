@@ -54,6 +54,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuantConnect.Optimizer", "O
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuantConnect.Optimizer.Launcher", "Optimizer.Launcher\QuantConnect.Optimizer.Launcher.csproj", "{D46D2A8D-340C-4B40-8EE6-6BAA7B1198AB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuantConnect.XTSBrokerage", "..\Lean.Brokerages.XTSBrokerage\QuantConnect.XTSBrokerage\QuantConnect.XTSBrokerage.csproj", "{CA951C3E-576F-4E17-9DEE-C8B8BAAC678D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTSAPI", "..\Symphony-XTS-API\XTSAPI\XTSAPI.csproj", "{0892706F-6DA0-41BA-B854-4AE718FE2EC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -146,6 +150,14 @@ Global
 		{D46D2A8D-340C-4B40-8EE6-6BAA7B1198AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D46D2A8D-340C-4B40-8EE6-6BAA7B1198AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D46D2A8D-340C-4B40-8EE6-6BAA7B1198AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA951C3E-576F-4E17-9DEE-C8B8BAAC678D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA951C3E-576F-4E17-9DEE-C8B8BAAC678D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA951C3E-576F-4E17-9DEE-C8B8BAAC678D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA951C3E-576F-4E17-9DEE-C8B8BAAC678D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0892706F-6DA0-41BA-B854-4AE718FE2EC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0892706F-6DA0-41BA-B854-4AE718FE2EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0892706F-6DA0-41BA-B854-4AE718FE2EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0892706F-6DA0-41BA-B854-4AE718FE2EC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

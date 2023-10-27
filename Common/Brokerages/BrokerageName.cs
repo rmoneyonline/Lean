@@ -141,6 +141,11 @@ namespace QuantConnect.Brokerages
         /// </summary>
         BinanceCoinFutures,
 
+	/// <summary>
+        /// Transaction and submit/execution rules will use XTS models
+        /// </summary>
+        XTS,
+
         /// <summary>
         /// Transaction and submit/execution rules will use RBI models
         /// </summary>

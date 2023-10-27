@@ -1,4 +1,4 @@
-﻿/*
+/*
  * QUANTCONNECT.COM - Democratizing Finance, Empowering Individuals.
  * Lean Algorithmic Trading Engine v2.0. Copyright 2014 QuantConnect Corporation.
  *
@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using NodaTime;
 using QuantConnect.Data;
 using QuantConnect.Util;
+using QuantConnect.Logging;
 
 namespace QuantConnect.Lean.Engine.DataFeeds.Enumerators
 {
@@ -176,6 +177,11 @@ namespace QuantConnect.Lean.Engine.DataFeeds.Enumerators
             }
             else if (_tradeBarAggregator.Current != null)
             {
+                if (_tradeBarAggregator.Current.EndTime <= DateTime.MinValue + TimeSpan.FromDays(365))
+                {
+                    _tradeBarAggregator.Current.EndTime = DateTime.Now;
+                    Log.Trace($"TradeBar Time Changed: {_tradeBarAggregator.Current.EndTime}");
+                }
                 var tradeBarEndTime = _tradeBarAggregator.Current.EndTime.ConvertToUtc(_exchangeTimeZone);
                 if (tradeBarEndTime <= frontierUtc)
                 {

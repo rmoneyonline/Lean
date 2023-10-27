@@ -260,7 +260,10 @@ namespace QuantConnect.Brokerages
                 case BrokerageName.TDAmeritrade:
                     return new TDAmeritradeBrokerageModel(accountType);
 
-                case BrokerageName.RBI: 
+                case BrokerageName.XTS:
+                    throw new NotImplementedException();
+
+                case BrokerageName.RBI:
                     return new RBIBrokerageModel(accountType);
                 
                 case BrokerageName.Bybit:

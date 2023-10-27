@@ -253,7 +253,9 @@ namespace QuantConnect.Lean.Engine.Setup
                         algorithm.Schedule.SetEventSchedule(parameters.RealTimeHandler);
 
                         var optionChainProvider = Composer.Instance.GetPart<IOptionChainProvider>();
-                        if (optionChainProvider == null)
+                        if (optionChainProvider == null && Config.Get("xts-live-option-chain-provider") != "")
+                            optionChainProvider = Composer.Instance.GetExportedValueByTypeName<IOptionChainProvider>(Config.Get("xts-live-option-chain-provider"));
+                        if(optionChainProvider == null)
                         {
                             optionChainProvider = new CachingOptionChainProvider(new LiveOptionChainProvider(parameters.DataCacheProvider, parameters.MapFileProvider));
                         }
@@ -261,6 +263,8 @@ namespace QuantConnect.Lean.Engine.Setup
                         algorithm.SetOptionChainProvider(optionChainProvider);
 
                         var futureChainProvider = Composer.Instance.GetPart<IFutureChainProvider>();
+                        if (futureChainProvider == null && Config.Get("xts-live-future-chain-provider") != "")
+                            futureChainProvider = Composer.Instance.GetExportedValueByTypeName<IFutureChainProvider>(Config.Get("xts-live-future-chain-provider"));
                         if (futureChainProvider == null)
                         {
                             futureChainProvider = new CachingFutureChainProvider(new LiveFutureChainProvider(parameters.DataCacheProvider));
