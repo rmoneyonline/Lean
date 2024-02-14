@@ -1244,7 +1244,12 @@ namespace QuantConnect.Algorithm
                 if (quantity != 0)
                 {
                     // calculate quantity for closing market order
-                    var ticket = Order(symbol, -quantity - marketOrdersQuantity, tag: tag);
+                    OrderTicket ticket;
+                    if(quantity > 0) 
+                        ticket = LimitOrder(symbol, -quantity - marketOrdersQuantity, Securities[symbol].BidPrice - 0.05m, tag: tag); //Priya: As MarketOrder in NSE is not acceptable
+                    else
+                        ticket = LimitOrder(symbol, -quantity - marketOrdersQuantity, Securities[symbol].AskPrice + 0.05m, tag: tag); //Priya: As MarketOrder in NSE is not acceptable
+                    //var ticket = Order(symbol, -quantity - marketOrdersQuantity, tag: tag);
                     if (ticket.Status == OrderStatus.Filled)
                     {
                         orderIdList.Add(ticket.OrderId);

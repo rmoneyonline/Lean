@@ -521,6 +521,8 @@ namespace QuantConnect
                     return SecurityType.FutureOption;
                 case SecurityType.Index:
                     return SecurityType.IndexOption;
+                case SecurityType.IndexOption:
+                    return SecurityType.IndexOption;
                 default:
                     throw new ArgumentException(Messages.Symbol.NoOptionTypeForUnderlying(securityType));
             }
