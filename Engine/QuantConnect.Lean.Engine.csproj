@@ -45,7 +45,7 @@
     <PackageReference Include="QuantConnect.pythonnet" Version="2.0.22" />
     <PackageReference Include="fasterflect" Version="3.0.0" />
     <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NodaTime" Version="3.0.5" />
     <PackageReference Include="RestSharp" Version="106.12.0" />
   </ItemGroup>
@@ -53,6 +53,8 @@
     <Compile Include="..\Common\Properties\SharedAssemblyInfo.cs" Link="Properties\SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Lean.Brokerages.XTSBrokerage\QuantConnect.XTSBrokerage\QuantConnect.XTSBrokerage.csproj" />
+    <ProjectReference Include="..\..\Symphony-XTS-API\XTSAPI\XTSAPI.csproj" />
     <ProjectReference Include="..\Algorithm.CSharp\QuantConnect.Algorithm.CSharp.csproj" />
     <ProjectReference Include="..\AlgorithmFactory\QuantConnect.AlgorithmFactory.csproj" />
     <ProjectReference Include="..\Algorithm\QuantConnect.Algorithm.csproj" />
